@@ -6,6 +6,7 @@ import android.print.PrinterId;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,7 +50,7 @@ public class QuoteFragment extends Fragment {
             public void onResponse(Call<Quotes> call, Response<Quotes> response) {
                 Log.d(TAG, "onResponse: " + response.body().getQuote());
                 String quote = response.body().getQuote()+" - "+ response.body().getAuthor();
-                StepsQuote.setText(quote);
+                StepsQuote.setText(Html.fromHtml(quote));
 
             }
 
